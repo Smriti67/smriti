@@ -1,10 +1,21 @@
 package com.cg.banking.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Transaction {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 private int transactionId;
 private float amount;
 private String transacriotnType;
 public Transaction() {}
+@ManyToOne
+private Account  account;
 public Transaction(float amount,String transactionType)
 	{
 		super();
@@ -35,9 +46,5 @@ public String getTransacriotnType() {
 public void setTransactionType(String transacriotnType) {
 	this.transacriotnType = transacriotnType;
 }
-@Override
-public String toString() {
-	return "Transaction [transactionId=" + transactionId + ", amount=" + amount + ", transacriotnType="
-			+ transacriotnType + "]";
-}
+
 }

@@ -1,16 +1,11 @@
 package com.cg.banking.client;
 import java.util.Scanner;
+
 import com.cg.banking.beans.Account;
 import com.cg.banking.exceptions.AccountBlockedException;
-import com.cg.banking.exceptions.AccountNotFoundException;
-import com.cg.banking.exceptions.BankingServicesDownException;
-import com.cg.banking.exceptions.InsufficientAmountException;
-import com.cg.banking.exceptions.InvalidAccountTypeException;
-import com.cg.banking.exceptions.InvalidAmountException;
-import com.cg.banking.exceptions.InvalidPinNumberException;
 import com.cg.banking.services.BankingServices;
 import com.cg.banking.services.BankingServicesImpl;
-import com.cg.banking.util.BankingDBUtil;
+
 
 public class MainClass extends Exception{
 	Account account=new Account();

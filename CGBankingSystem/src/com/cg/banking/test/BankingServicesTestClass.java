@@ -1,27 +1,7 @@
 package com.cg.banking.test;
-import com.cg.banking.beans.Account;
-import com.cg.banking.beans.Transaction;
-import com.cg.banking.exceptions.AccountNotFoundException;
-import com.cg.banking.exceptions.AccountBlockedException;
-import com.cg.banking.exceptions.BankingServicesDownException;
-import com.cg.banking.exceptions.InsufficientAmountException;
-import com.cg.banking.exceptions.InvalidAccountTypeException;
-import com.cg.banking.exceptions.InvalidAmountException;
-import com.cg.banking.exceptions.InvalidPinNumberException;
-import com.cg.banking.services.BankingServices;
-import com.cg.banking.services.BankingServicesImpl;
-import com.cg.banking.util.BankingDBUtil;
-import org.junit.Assert;
 
-import java.util.HashMap;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 public class BankingServicesTestClass {
-	Account account=new Account();
+/*	Account account=new Account();
 
 private static BankingServices service;
 	
@@ -95,5 +75,5 @@ InsufficientAmountException,AccountNotFoundException, BankingServicesDownExcepti
 public void tearDownTestData() {
 	BankingDBUtil.accountDetails.clear();
 	BankingDBUtil.accountNumber=100;
-}
+}*/
 }

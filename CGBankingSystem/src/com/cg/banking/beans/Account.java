@@ -1,8 +1,15 @@
 package com.cg.banking.beans;
 import java.util.HashMap;
 import java.util.List;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class Account {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 
 private long accountNo;
 private int pinNumber;
@@ -14,7 +21,8 @@ public Account(String accountType, float initBalance) {
 	this.accountType=accountType;
 	this.accountBalance=initBalance;
 }
-
+@OneToMany(mappedBy="account")
+private List<Transaction> transaction;
 @Override
 public String toString() {
 	return "Account [accountNo=" + accountNo + ", pinNumber=" + pinNumber + ", accountType=" + accountType
@@ -34,6 +42,7 @@ public Account(long accountNo, int pinNumber, String accountType, String account
 }
 
 public Account() {}
+
 
 @Override
 public int hashCode() {

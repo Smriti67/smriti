@@ -13,9 +13,12 @@ import com.cg.banking.exceptions.InsufficientAmountException;
 import com.cg.banking.exceptions.InvalidAccountTypeException;
 import com.cg.banking.exceptions.InvalidAmountException;
 import com.cg.banking.exceptions.InvalidPinNumberException;
-import com.cg.banking.util.BankingDBUtil;
+
 
 public class BankingServicesImpl implements  BankingServices{
+
+	
+	
 	
 	AccountDAOImpl service = new AccountDAOImpl();
 	Account account;
@@ -59,12 +62,12 @@ public class BankingServicesImpl implements  BankingServices{
 		account.setAccountBalance(finalAmount);
 		
 		Transaction transaction=new Transaction();
-		Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
-		int tId=transactionID;
-		transaction.setTransactionId(tId);
-		transaction.setTransactionType(BankingDBUtil.getDEPOSITE_STATUS());
+		//Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
+		//int tId=transactionID;
+		//transaction.setTransactionId(tId);
+		//transaction.setTransactionType(BankingDBUtil.getDEPOSITE_STATUS());
 		transaction.setAmount(amount);
-		account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transaction);
+		//account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transaction);
 //		System.out.println(BankingDBUtil.getDEPOSITE_STATUS()
 		return (int)finalAmount;
 	}
@@ -81,12 +84,12 @@ public class BankingServicesImpl implements  BankingServices{
 			account.setAccountBalance(newAmount);
 			
 			Transaction transactionWith=new Transaction();
-			Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
-			int tId=transactionID;
-			transactionWith.setTransactionId(tId);
-			transactionWith.setTransactionType(BankingDBUtil.getWITHDRAW_STATUS());
+			//Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
+			//int tId=transactionID;
+			//transactionWith.setTransactionId(tId);
+			//transactionWith.setTransactionType(BankingDBUtil.getWITHDRAW_STATUS());
 			transactionWith.setAmount(amount);
-			account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionWith);
+			//account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionWith);
 			return newAmount;
 			}
 			else
@@ -101,8 +104,8 @@ public class BankingServicesImpl implements  BankingServices{
 			BankingServicesDownException, AccountBlockedException {
 		
 		Transaction transactionFT=new Transaction();
-		Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
-		transactionFT.setTransactionId(transactionID);
+		//Integer transactionID=BankingDBUtil.getTRANSACTION_ID();
+		//transactionFT.setTransactionId(transactionID);
 		transactionFT.setAmount(transferAmount);
 		
 		account = service.findOne(accountNoFrom);
@@ -112,8 +115,8 @@ public class BankingServicesImpl implements  BankingServices{
 			if(transferAmount<account.getAccountBalance()) {
 			float deductedAmount=account.getAccountBalance()-transferAmount;
 			account.setAccountBalance(deductedAmount);
-			transactionFT.setTransactionType(BankingDBUtil.getTRANSFER_STATUS());			
-			account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionFT);
+			//transactionFT.setTransactionType(BankingDBUtil.getTRANSFER_STATUS());			
+			//account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionFT);
 			}
 			else
 				throw new InsufficientAmountException("Insufficient Amount!!!");
@@ -124,8 +127,8 @@ public class BankingServicesImpl implements  BankingServices{
 			account =service.findOne(accountNoTo);
 			float addedAmount=account.getAccountBalance()+transferAmount;
 				account.setAccountBalance(addedAmount);
-				transactionFT.setTransactionType(BankingDBUtil.getTRANSFER_STATUS());
-				account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionFT);
+				//transactionFT.setTransactionType(BankingDBUtil.getTRANSFER_STATUS());
+				//account.transactions.put(BankingDBUtil.getTRANSACTION_ID(),transactionFT);
 			return true;
 	}
 	@Override
